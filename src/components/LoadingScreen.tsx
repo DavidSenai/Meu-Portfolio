@@ -2,8 +2,10 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function LoadingScreen() {
+  const { t } = useLanguage();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -50,7 +52,7 @@ export default function LoadingScreen() {
                 transition={{ duration: 2, repeat: Infinity }}
                 className="text-blue-400 font-mono text-sm tracking-widest uppercase"
               >
-                Carregando...
+                {t.loading.text}
               </motion.p>
               <motion.p
                 initial={{ opacity: 0 }}

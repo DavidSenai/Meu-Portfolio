@@ -11,9 +11,7 @@
   --color-surface: rgba(255, 255, 255, 0.05);
 }
 
-* {
-  cursor: none;
-}
+
 
 html {
   scroll-behavior: smooth;

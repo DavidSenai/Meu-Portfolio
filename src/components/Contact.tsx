@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { FiLinkedin, FiGithub } from "react-icons/fi";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const contacts = [
   {
@@ -30,6 +31,7 @@ const cardVariants = {
 };
 
 export default function Contact() {
+  const { t } = useLanguage();
   return (
     <section id="contact" className="relative py-24 px-4">
       <div className="absolute inset-0 bg-gradient-to-t from-blue-500/5 via-transparent to-transparent pointer-events-none" />
@@ -40,7 +42,7 @@ export default function Contact() {
           viewport={{ once: true, margin: "-100px" }}
           className="section-title"
         >
-          Entre em <span>Contato</span>
+          {t.contact.title} <span>{t.contact.titleSpan}</span>
         </motion.h2>
 
         <motion.p
@@ -50,7 +52,7 @@ export default function Contact() {
           transition={{ delay: 0.1 }}
           className="text-gray-400 text-center text-lg mb-12 max-w-xl mx-auto"
         >
-          Vamos trabalhar juntos? Estou aberto a novas oportunidades e colaboracoes.
+          {t.contact.desc}
         </motion.p>
 
         <motion.div
@@ -82,7 +84,7 @@ export default function Contact() {
                     <h3 className="text-lg font-semibold text-white group-hover:text-blue-400 transition-colors duration-500">
                       {contact.name}
                     </h3>
-                    <p className="text-sm text-gray-500 mt-1">Clique para abrir</p>
+                    <p className="text-sm text-gray-500 mt-1">{t.contact.click}</p>
                   </div>
                   <div className="w-full h-[2px] bg-gradient-to-r from-blue-500/0 via-blue-500/40 to-blue-500/0 scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
                 </div>

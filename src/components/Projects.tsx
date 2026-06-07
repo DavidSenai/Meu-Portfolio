@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { FiExternalLink, FiGithub, FiFolder } from "react-icons/fi";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface Repo {
   id: number;
@@ -14,12 +15,13 @@ interface Repo {
   language: string;
 }
 
-const repoSlugs = ["EstacaoAkira", "controle-do-mes", "sistema-folha-pagamento-java"];
+const repoSlugs = ["EstacaoAkira", "controle-do-mes", "sistema-folha-pagamento-java", "FinanceFlow"];
 
 const repoDescriptions: Record<string, string> = {
-  "EstacaoAkira": "E-commerce com tematica anime, estilo cyberpunk. Interface imersiva e responsiva.",
+  "EstacaoAkira": "App mobile para monitoramento climatico aos agricultores.",
   "controle-do-mes": "App de controle financeiro pessoal com dashboard interativo e categorizacao de gastos.",
   "sistema-folha-pagamento-java": "Sistema de folha de pagamento completo em Java com interface desktop.",
+  "FinanceFlow": "App de controle financeiro com chatbot integrado e dashboard interativo.",
 };
 
 const languageColors: Record<string, string> = {
@@ -31,6 +33,7 @@ const languageColors: Record<string, string> = {
 };
 
 export default function Projects() {
+  const { t } = useLanguage();
   const [repos, setRepos] = useState<Repo[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -57,12 +60,12 @@ export default function Projects() {
           viewport={{ once: true, margin: "-100px" }}
           className="section-title"
         >
-          Meus <span>Projetos</span>
+          {t.projects.title} <span>{t.projects.titleSpan}</span>
         </motion.h2>
 
         {loading && (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[1, 2, 3].map((n) => (
+            {[1, 2, 3, 4].map((n) => (
               <div key={n} className="glass rounded-2xl p-6 animate-pulse">
                 <div className="w-10 h-10 rounded-xl bg-white/5 mb-4" />
                 <div className="h-5 bg-white/5 rounded w-3/4 mb-3" />
@@ -106,7 +109,7 @@ export default function Projects() {
                   </h3>
 
                   <p className="text-gray-400 text-sm mb-4 flex-1 leading-relaxed">
-                    {repoDescriptions[repo.name] || repo.description || "Projeto desenvolvido com tecnologias modernas."}
+                    {repoDescriptions[repo.name] || repo.description || t.projects.fallbackDesc}
                   </p>
 
                   {repo.topics && repo.topics.length > 0 && (
@@ -122,7 +125,7 @@ export default function Projects() {
                     </div>
                   )}
 
-                  {repo.language && (
+                  {repo.language && repo.name !== "controle-do-mes" && repo.name !== "sistema-folha-pagamento-java" && (
                     <div className="flex items-center gap-2 mb-4">
                       <span
                         className="w-2.5 h-2.5 rounded-full"
@@ -146,7 +149,7 @@ export default function Projects() {
                         className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-xl"
                       >
                         <FiExternalLink className="w-4 h-4" />
-                        Ver Projeto
+                        {t.projects.view}
                       </motion.a>
                     )}
                     <motion.a
@@ -160,7 +163,7 @@ export default function Projects() {
                       }`}
                     >
                       <FiGithub className="w-4 h-4" />
-                      Codigo
+                      {t.projects.code}
                     </motion.a>
                   </div>
                 </div>
@@ -176,7 +179,7 @@ export default function Projects() {
             className="text-center py-16"
           >
             <p className="text-gray-500">
-              Nenhum repositorio encontrado no momento.
+              {t.projects.empty}
             </p>
           </motion.div>
         )}

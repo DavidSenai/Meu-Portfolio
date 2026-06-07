@@ -8,15 +8,13 @@ import {
   FiBookOpen,
   FiMapPin,
 } from "react-icons/fi";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const highlights = [
-  { label: "Paixao por tecnologia", icon: FiHeart, color: "text-red-400" },
-  { label: "Evolucao constante", icon: FiTrendingUp, color: "text-green-400" },
-  { label: "Aprendizado continuo", icon: FiBookOpen, color: "text-blue-400" },
-  { label: "Projetos pessoais", icon: FiCode, color: "text-cyan-400" },
-];
+const highlightIcons = [FiHeart, FiTrendingUp, FiBookOpen, FiCode] as const;
+const highlightColors = ["text-red-400", "text-green-400", "text-blue-400", "text-cyan-400"];
 
 export default function About() {
+  const { t } = useLanguage();
   return (
     <section id="about" className="relative py-24 px-4">
       <div className="absolute inset-0 bg-gradient-to-b from-blue-500/3 via-transparent to-transparent pointer-events-none" />
@@ -27,7 +25,7 @@ export default function About() {
           viewport={{ once: true, margin: "-100px" }}
           className="section-title"
         >
-          Sobre <span>Mim</span>
+          {t.about.title} <span>{t.about.titleSpan}</span>
         </motion.h2>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -38,11 +36,7 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="flex justify-center"
           >
-            <motion.div
-              animate={{ y: [0, -12, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="relative w-72 h-72 sm:w-80 sm:h-80"
-            >
+            <div className="relative w-72 h-72 sm:w-80 sm:h-80">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-3xl blur-3xl opacity-30 animate-pulse" />
               <div className="absolute inset-0 rounded-3xl border-2 border-blue-400/30 shadow-[0_0_30px_rgba(59,130,246,0.3)]" />
               <div className="relative w-full h-full rounded-3xl glass flex flex-col items-center justify-center gap-4 p-8 overflow-hidden">
@@ -63,7 +57,7 @@ export default function About() {
                   <span>Sumare-SP, Brasil</span>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </motion.div>
 
           <motion.div
@@ -74,42 +68,34 @@ export default function About() {
             className="space-y-5"
           >
             <p className="text-gray-300 leading-relaxed text-lg">
-              Sou um desenvolvedor apaixonado por tecnologia, sempre em busca de
-              evolucao constante. Meu interesse em desenvolvimento de software me
-              impulsiona a criar solucoes criativas e funcionais, transformando
-              ideias em experiencias digitais modernas e impactantes.
+              {t.about.p1}
             </p>
 
             <p className="text-gray-400 leading-relaxed">
-              Atraves de projetos pessoais e aprendizado continuo, venho
-              explorando tecnologias como <span className="text-blue-400">React</span>,{" "}
-              <span className="text-blue-400">Next.js</span>,{" "}
-              <span className="text-blue-400">TypeScript</span> e{" "}
-              <span className="text-blue-400">Node.js</span>, sempre aplicando
-              boas praticas de desenvolvimento, performance e experiencia do
-              usuario em cada projeto.
+              {t.about.p2a} <span className="text-blue-400">React</span>,{" "}
+              <span className="text-blue-400">JavaScript</span>,{" "}
+              <span className="text-blue-400">IA</span> e{" "}
+              <span className="text-blue-400">Node.js</span>, {t.about.p2b}
             </p>
 
             <p className="text-gray-400 leading-relaxed">
-              Acredito que a tecnologia tem o poder de transformar vidas e estou
-              comprometido em criar solucoes que facam a diferenca, combinando
-              criatividade, codigo limpo e as melhores ferramentas do mercado.
+              {t.about.p3}
             </p>
 
             <div className="flex flex-wrap gap-3 pt-4">
-              {highlights.map((item, i) => {
-                const Icon = item.icon;
+              {t.about.highlights.map((label, i) => {
+                const Icon = highlightIcons[i];
                 return (
                   <motion.div
-                    key={item.label}
+                    key={label}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.4 + i * 0.1 }}
                     className="flex items-center gap-2 px-4 py-2 glass rounded-xl text-sm text-gray-300"
                   >
-                    <Icon className={`w-4 h-4 ${item.color}`} />
-                    <span>{item.label}</span>
+                    <Icon className={`w-4 h-4 ${highlightColors[i]}`} />
+                    <span>{label}</span>
                   </motion.div>
                 );
               })}

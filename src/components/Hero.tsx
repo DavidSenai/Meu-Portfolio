@@ -1,7 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { FiGithub, FiLinkedin } from "react-icons/fi";
 import FakeTerminal from "./FakeTerminal";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -17,6 +19,7 @@ const itemVariants = {
 };
 
 export default function Hero() {
+  const { t } = useLanguage();
   return (
     <section
       id="hero"
@@ -37,7 +40,7 @@ export default function Hero() {
             variants={itemVariants}
             className="inline-block px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium mb-6 backdrop-blur-sm"
           >
-            Desenvolvedor Full Stack
+            {t.hero.badge}
           </motion.div>
 
           <motion.h1
@@ -52,7 +55,7 @@ export default function Hero() {
             variants={itemVariants}
             className="text-lg sm:text-xl text-gray-400 mb-8 max-w-xl mx-auto lg:mx-0"
           >
-            Transformando ideias em experiências digitais modernas.
+            {t.hero.tagline}
           </motion.p>
 
           <motion.div
@@ -65,7 +68,7 @@ export default function Hero() {
               whileTap={{ scale: 0.95 }}
               className="group relative px-8 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-medium rounded-xl overflow-hidden"
             >
-              <span className="relative z-10">Ver Projetos</span>
+              <span className="relative z-10">{t.hero.cta}</span>
               <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
             </motion.a>
             <motion.a
@@ -74,8 +77,9 @@ export default function Hero() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 glass glass-hover text-gray-300 font-medium rounded-xl"
+              className="px-8 py-3 glass glass-hover text-gray-300 font-medium rounded-xl inline-flex items-center gap-2"
             >
+              <FiGithub className="w-5 h-5" />
               GitHub
             </motion.a>
             <motion.a
@@ -84,8 +88,9 @@ export default function Hero() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 glass glass-hover text-gray-300 font-medium rounded-xl"
+              className="px-8 py-3 glass glass-hover text-gray-300 font-medium rounded-xl inline-flex items-center gap-2"
             >
+              <FiLinkedin className="w-5 h-5" />
               LinkedIn
             </motion.a>
           </motion.div>

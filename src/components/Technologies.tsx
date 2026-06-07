@@ -5,31 +5,31 @@ import {
   SiHtml5,
   SiCss,
   SiJavascript,
-  SiTypescript,
   SiReact,
-  SiNextdotjs,
   SiNodedotjs,
   SiPython,
   SiGit,
   SiGithub,
   SiMysql,
+  SiOpenjdk,
 } from "react-icons/si";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const techs = [
   { name: "HTML", icon: SiHtml5, color: "#e34f26" },
   { name: "CSS", icon: SiCss, color: "#1572b6" },
   { name: "JavaScript", icon: SiJavascript, color: "#f7df1e" },
-  { name: "TypeScript", icon: SiTypescript, color: "#3178c6" },
   { name: "React", icon: SiReact, color: "#61dafb" },
-  { name: "Next.js", icon: SiNextdotjs, color: "#ffffff" },
   { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
   { name: "Python", icon: SiPython, color: "#3776ab" },
+  { name: "Java", icon: SiOpenjdk, color: "#b07219" },
   { name: "Git", icon: SiGit, color: "#f05032" },
   { name: "GitHub", icon: SiGithub, color: "#ffffff" },
   { name: "MySQL", icon: SiMysql, color: "#4479a1" },
 ];
 
 export default function Technologies() {
+  const { t } = useLanguage();
   return (
     <section id="technologies" className="relative py-24 px-4">
       <div className="max-w-6xl mx-auto">
@@ -39,7 +39,7 @@ export default function Technologies() {
           viewport={{ once: true, margin: "-100px" }}
           className="section-title"
         >
-          Tecnologias
+          {t.tech.title}
         </motion.h2>
 
         <div className="flex flex-wrap justify-center gap-4">
