@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 David Andrade | Portfolio
 
-## Getting Started
+Bem-vindo ao meu portfólio!
 
-First, run the development server:
+Este projeto foi desenvolvido para apresentar minha trajetória, habilidades técnicas e projetos desenvolvidos durante minha formação e evolução na área de tecnologia.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 👨‍💻 Sobre Mim
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Sou estudante de Ciência da Computação e Técnico em Desenvolvimento de Sistemas, apaixonado por tecnologia e desenvolvimento de software.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Tenho experiência com desenvolvimento web, integração de APIs, banco de dados e construção de aplicações modernas, sempre buscando aprender novas tecnologias e transformar ideias em soluções práticas.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## ✨ Destaques do Portfólio
 
-To learn more about Next.js, take a look at the following resources:
+- Interface moderna e responsiva
+- Design futurista em tons azulados
+- Animações suaves e interativas
+- Experiência otimizada para desktop e mobile
+- Seção de projetos personalizada
+- Timeline de formação e jornada
+- Alternância de idioma (Português/Inglês)
+- Efeitos visuais modernos e profissionais
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠️ Tecnologias
 
-## Deploy on Vercel
+### Front-end
+- HTML5
+- CSS3
+- JavaScript
+- TypeScript
+- React
+- Next.js
+- Tailwind CSS
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Ferramentas
+- Git
+- GitHub
+- Firebase
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Banco de Dados
+- MySQL
+
+---
+
+## 📂 Projetos em Destaque
+
+### 🚉 EstacaoAkira
+Projeto desenvolvido com foco em organização, usabilidade e experiência do usuário.
+
+### 💰 Controle do Mês
+Sistema para gerenciamento e acompanhamento de gastos mensais.
+
+### 📄 Sistema de Folha de Pagamento
+Aplicação desenvolvida em Java para cálculo e gerenciamento de folha de pagamento.
+
+---
+
+## 🎯 Objetivo
+
+Este portfólio representa minha evolução como desenvolvedor e meu compromisso com o aprendizado contínuo, reunindo projetos, conhecimentos e experiências que fazem parte da minha jornada na tecnologia.
+
+---
+
+## 📫 Contato
+
+- LinkedIn: www.linkedin.com/in/david-andrade-2085b1322
+- GitHub: github.com/DavidSenai
+
+---
+
+### ⭐ Obrigado pela visita!
+Sinta-se à vontade para explorar os projetos e acompanhar minha evolução na área de tecnologia.
